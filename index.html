@@ -1,1 +1,371 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09090e"><meta name="description" content="Impulse Landing — Próximamente."><title>Impulse Landing — Próximamente</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><div class="glow a"></div><div class="glow b"></div><div class="bubbles" id="bubbles" aria-hidden="true"></div><main><header class="brand">IMPULSE <span>LANDING</span></header><section class="hero"><p class="coming">PRÓXIMAMENTE</p><h1>Tu idea merece un lugar <span>en el mundo digital.</span></h1><div class="bottom"><a href="https://instagram.com/impulselanding" target="_blank" rel="noopener noreferrer"><i>@</i>@impulselanding <b>↗</b></a><div class="services"><span>Landing Pages</span><span>Branding</span><span>Presencia Digital</span></div></div></section></main><script src="bubbles.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="description" content="Impulse Landing — Branding, Landing Pages y Presencia Digital." />
+  <title>Impulse Landing — Impulsa tu presencia digital</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body><div class="custom-cursor" aria-hidden="true"><span></span></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Impulse Landing, inicio">
+      <span class="brand-heavy">IMPULSE</span>
+      <span class="brand-light">LANDING</span>
+    </a>
+
+    <a class="header-link" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <!-- HERO FULL SCREEN -->
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <p class="eyebrow">Branding · Landing Pages · Presencia Digital</p>
+
+        <h1>
+          Tu idea merece un lugar
+          <span>en el mundo digital.</span>
+        </h1>
+
+        <p class="hero-text">
+          Diseñamos experiencias digitales claras, modernas y pensadas para convertir atención en contacto.
+        </p>
+
+        <div class="hero-actions" aria-label="Acciones principales"><a class="btn btn-primary-glass" id="whatsappHero" href="#" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#trabajos">Ver nuestros trabajos <span aria-hidden="true">↓</span></a><a class="btn btn-builder" href="#constructor">Crea tu landing <span aria-hidden="true">✦</span></a></div>
+      </div><div class="hero-interface" aria-hidden="true"><div class="float-window main"><i></i><i></i><i></i><b></b><em></em><small></small></div><div class="float-window card"><strong>01</strong><span>IDEA<br>EN LÍNEA</span><u></u></div></div>
+    </section>
+
+    <!-- CONSTRUCTOR INTERACTIVO -->
+    <section class="builder-section" id="constructor">
+      <div class="builder-heading">
+        <p class="section-kicker">Pruébalo tú mismo</p>
+        <h2>Construye una landing en segundos.</h2>
+        <p>
+          Una landing page presenta una idea, explica lo que ofreces y guía al visitante hacia una acción.
+          Aquí puedes armar una versión simple y verla como si ya estuviera publicada.
+        </p>
+      </div>
+
+      <div class="builder-layout">
+        <!-- CONTROLES -->
+        <aside class="builder-panel">
+          <div class="setup-block">
+            <label class="field-label" for="projectName">¿Cómo se llama tu proyecto?</label>
+
+            <div class="project-input-wrap">
+              <input
+                id="projectName"
+                type="text"
+                maxlength="28"
+                placeholder="Ej. Nova Studio"
+                autocomplete="off"
+              />
+              <span>.com</span>
+            </div>
+          </div>
+
+          <div class="setup-block">
+            <span class="field-label">Elige un estilo</span>
+
+            <div class="style-grid" id="styleGrid">
+              <button type="button" class="style-option is-selected" data-font="inter">
+                <span class="style-aa font-inter">Aa</span>
+                <span>
+                  <strong>Modern</strong>
+                  <small>Claro y actual</small>
+                </span>
+              </button>
+
+              <button type="button" class="style-option" data-font="space">
+                <span class="style-aa font-space">Aa</span>
+                <span>
+                  <strong>Tech</strong>
+                  <small>Digital y directo</small>
+                </span>
+              </button>
+
+              <button type="button" class="style-option" data-font="serif">
+                <span class="style-aa font-serif">Aa</span>
+                <span>
+                  <strong>Editorial</strong>
+                  <small>Elegante y humano</small>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="setup-block">
+            <span class="field-label">Arma tu página</span>
+
+            <div class="section-builder">
+              <button class="build-step is-active" type="button" data-add="hero">
+                <span class="build-number">01</span>
+                <span>
+                  <strong>Presenta tu idea</strong>
+                  <small>Nombre, mensaje y primera impresión.</small>
+                </span>
+                <span class="build-state">Agregar</span>
+              </button>
+
+              <button class="build-step" type="button" data-add="services">
+                <span class="build-number">02</span>
+                <span>
+                  <strong>Cuenta lo que haces</strong>
+                  <small>Servicios o beneficios principales.</small>
+                </span>
+                <span class="build-state">Agregar</span>
+              </button>
+
+              <button class="build-step" type="button" data-add="contact">
+                <span class="build-number">03</span>
+                <span>
+                  <strong>Invita a contactarte</strong>
+                  <small>Una llamada a la acción clara.</small>
+                </span>
+                <span class="build-state">Agregar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="builder-progress">
+            <div class="progress-copy">
+              <span id="progressText">0 de 3 secciones</span>
+              <button type="button" id="resetBuilder">Reiniciar</button>
+            </div>
+            <div class="progress-track">
+              <span id="progressBar"></span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- PREVIEW -->
+        <div class="preview-shell">
+          <div class="preview-toolbar">
+            <div class="browser-controls" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="address-bar">
+              <span class="secure-dot"></span>
+              <span class="protocol">https://</span>
+              <strong id="browserDomain">www.tuproyecto.com</strong>
+            </div>
+
+            <div class="view-switch" aria-label="Vista del sitio">
+              <button class="view-button is-selected" type="button" data-view="desktop" aria-label="Vista escritorio">
+                Desktop
+              </button>
+              <button class="view-button" type="button" data-view="mobile" aria-label="Vista móvil">
+                Mobile
+              </button>
+            </div>
+          </div>
+
+          <div class="preview-stage">
+            <div class="site-frame desktop" id="siteFrame">
+              <div class="demo-site font-inter" id="demoSite">
+                <header class="demo-nav">
+                  <strong id="demoBrand">TU PROYECTO</strong>
+                  <nav>
+                    <span>Inicio</span>
+                    <span>Servicios</span>
+                    <span>Contacto</span>
+                  </nav>
+                  <span class="demo-nav-cta">Hablemos</span>
+                </header>
+
+                <main class="demo-page">
+                  <section class="demo-placeholder" id="emptyPreview">
+                    <div class="placeholder-orb">+</div>
+                    <strong>Tu landing aparecerá aquí.</strong>
+                    <span>Empieza agregando la primera sección.</span>
+                  </section>
+
+                  <section class="demo-hero demo-section" data-demo="hero">
+                    <div class="demo-hero-copy">
+                      <span class="demo-eyebrow">PRESENCIA DIGITAL</span>
+                      <h3 id="demoHeroTitle">Tu proyecto merece verse bien.</h3>
+                      <p>
+                        Una propuesta clara, moderna y preparada para conectar con las personas correctas.
+                      </p>
+
+                      <div class="demo-hero-actions">
+                        <span>Conoce más</span>
+                        <span class="ghost">Ver servicios</span>
+                      </div>
+                    </div>
+
+                    <div class="demo-visual" aria-hidden="true">
+                      <div class="demo-orbit"></div>
+                      <div class="demo-wave"></div>
+                      <span>01 / DIGITAL</span>
+                    </div>
+                  </section>
+
+                  <section class="demo-services demo-section" data-demo="services">
+                    <div class="demo-section-heading">
+                      <span>LO QUE HACEMOS</span>
+                      <strong>Simple de entender.<br>Fácil de recordar.</strong>
+                    </div>
+
+                    <div class="demo-service-grid">
+                      <article>
+                        <small>01</small>
+                        <strong>Estrategia</strong>
+                        <p>Una dirección clara para empezar.</p>
+                      </article>
+
+                      <article>
+                        <small>02</small>
+                        <strong>Diseño</strong>
+                        <p>Una presencia que se siente propia.</p>
+                      </article>
+
+                      <article>
+                        <small>03</small>
+                        <strong>Conexión</strong>
+                        <p>Un camino directo al contacto.</p>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="demo-contact demo-section" data-demo="contact">
+                    <div>
+                      <span>¿LISTO PARA EMPEZAR?</span>
+                      <strong>Convirtamos tu idea<br>en algo real.</strong>
+                    </div>
+
+                    <span class="demo-contact-button">Hablemos →</span>
+                  </section>
+                </main>
+
+                <footer class="demo-footer">
+                  <strong id="demoFooterBrand">TU PROYECTO</strong>
+                  <span>© 2026</span>
+                </footer>
+              </div>
+            </div>
+
+            <div class="builder-complete" id="builderComplete">
+              <span class="complete-dot"></span>
+              <div>
+                <strong>¡Listo!</strong>
+                <p>Eso es una landing page: clara, enfocada y con un objetivo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRABAJOS -->
+    <section class="work-strip" id="trabajos">
+      <div class="section-heading compact-heading">
+        <p class="section-kicker">Nuestros trabajos</p>
+        <h2>Ideas que ya están tomando forma.</h2>
+        <p>Una muestra de cómo puede verse una presencia digital bien construida.</p>
+      </div>
+
+      <div class="marquee" aria-label="Carrusel automático de proyectos demo">
+        <div class="marquee-track">
+          <div class="work-logo"><span>01</span> NORTE / STUDIO</div>
+          <div class="work-logo"><span>02</span> MAREA</div>
+          <div class="work-logo"><span>03</span> NEXO / LAB</div>
+          <div class="work-logo"><span>04</span> AURA</div>
+          <div class="work-logo"><span>05</span> FORMA / CO.</div>
+          <div class="work-logo"><span>06</span> VÉRTICE</div>
+
+          <div class="work-logo" aria-hidden="true"><span>01</span> NORTE / STUDIO</div>
+          <div class="work-logo" aria-hidden="true"><span>02</span> MAREA</div>
+          <div class="work-logo" aria-hidden="true"><span>03</span> NEXO / LAB</div>
+          <div class="work-logo" aria-hidden="true"><span>04</span> AURA</div>
+          <div class="work-logo" aria-hidden="true"><span>05</span> FORMA / CO.</div>
+          <div class="work-logo" aria-hidden="true"><span>06</span> VÉRTICE</div>
+        </div>
+      </div>
+
+      <p class="demo-note">*Nombres demo. Puedes sustituirlos por clientes o proyectos reales.</p>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section" id="servicios">
+      <div class="section-heading">
+        <p class="section-kicker">Qué hacemos</p>
+        <h2>Lo esencial para empezar bien.</h2>
+        <p>
+          Construimos solo lo que tu proyecto necesita para verse bien, encontrarse fácil y convertir interés en contacto.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-index">01</span>
+          <h3>Branding</h3>
+          <p>Identidad visual clara, consistente y pensada para crecer contigo.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-index">02</span>
+          <h3>Landing Pages</h3>
+          <p>Sitios rápidos, responsivos y enfocados en presentar tu propuesta con claridad.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-index">03</span>
+          <h3>Presencia Digital</h3>
+          <p>Google, WhatsApp, redes, dominio y puntos de contacto trabajando juntos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact-section" id="contacto">
+      <div class="contact-card">
+        <p class="section-kicker">Conversemos</p>
+        <h2>¿Qué quieres impulsar?</h2>
+        <p>
+          Cuéntanos tu idea. No necesitas tener todo resuelto para empezar.
+        </p>
+
+        <div class="contact-actions">
+          <a class="contact-launch" id="contactLaunch" href="#contact-form"><span>Cuéntanos tu idea</span><i aria-hidden="true">↗</i></a><form class="contact-form" id="contactForm"><div class="form-grid"><label>Tu nombre<input id="leadName" name="name" required placeholder="¿Cómo te llamas?"></label><label>Cómo contactarte<input name="contact" required placeholder="WhatsApp, correo o teléfono"></label></div><label>¿Qué te interesa?<select name="interest" required><option value="">Elige una opción</option><option>Landing page</option><option>Branding</option><option>Presencia digital completa</option><option>Quiero orientación</option></select></label><label>Cuéntanos tu idea<textarea name="idea" required maxlength="600" placeholder="Ej. Tengo un negocio y quiero que más personas me encuentren…"></textarea></label><button class="form-send" type="submit">Enviar por WhatsApp ↗</button></form>
+
+          <a class="text-link" id="instagramLink" href="#" target="_blank" rel="noopener">
+            Instagram ↗
+          </a>
+
+          <a class="text-link" id="emailLink" href="#">
+            Correo ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand footer-brand">
+      <span class="brand-heavy">IMPULSE</span>
+      <span class="brand-light">LANDING</span>
+    </div>
+
+    <p>Branding · Landing Pages · Presencia Digital</p>
+    <p>© <span id="year"></span> Impulse Landing</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
+
+
