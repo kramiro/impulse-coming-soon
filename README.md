@@ -1,53 +1,16 @@
-# Impulse Landing — V2.3
+# Impulse Landing — mini landing para QR
 
-Esta versión reconstruye la experiencia principal y simplifica el mini constructor.
+Sitio estático listo para desplegar en Vercel.
 
-## Cambios principales
-
-### 1. Hero a pantalla completa
-La primera sección ahora ocupa toda la pantalla:
-- headline grande
-- copy breve
-- CTA a WhatsApp
-- CTA a trabajos
-- enlace discreto hacia el constructor
-
-### 2. Constructor interactivo movido debajo del hero
-La experiencia de "construir una landing" ya no compite con el mensaje principal.
-
-### 3. Constructor más simple y amigable
-El usuario:
-1. escribe el nombre del proyecto
-2. elige uno de 3 estilos tipográficos
-3. agrega 3 partes esenciales:
-   - Presentación / Hero
-   - Servicios
-   - Contacto / CTA
-
-No hay pasos innecesarios como navegación o footer manuales.
-
-### 4. Vista live más real
-Incluye:
-- `https://`
-- dominio dinámico
-- vista desktop
-- vista mobile
-- contenido adaptado al nombre del proyecto
-
-### 5. Explicación educativa
-La interacción ayuda a entender qué es una landing page:
-- presenta una idea
-- explica lo que ofreces
-- guía hacia una acción
-
-### 6. Página general simplificada
-- se eliminó el formulario largo
-- contacto final más directo
-- CTA principal sigue siendo WhatsApp
-- trabajos y servicios permanecen
+## Archivos
+- `index.html`
+- `styles.css`
+- `script.js`
+- `favicon.svg`
+- `vercel.json`
 
 ## Antes de publicar
-Edita `script.js`:
+Abre `script.js` y cambia:
 
 ```js
 const CONFIG = {
@@ -57,15 +20,22 @@ const CONFIG = {
 };
 ```
 
-## Deploy en Vercel
-1. Descomprime el ZIP.
-2. Sube los archivos al repositorio.
-3. Vercel → Add New → Project.
+En `whatsappNumber`, usa el código de país + número sin `+`, espacios ni guiones.
+
+## Publicar en Vercel
+1. Descomprime esta carpeta.
+2. Súbela a un repositorio de GitHub.
+3. En Vercel: Add New → Project → Importa el repositorio.
 4. Framework Preset: `Other`.
 5. Root Directory: `./`
-6. Sin Build Command.
+6. No necesitas Build Command.
 7. Deploy.
 
-El `vercel.json` mantiene:
-- `/hola`
-- `/contacto`
+También puedes arrastrar la carpeta a Vercel si usas su flujo de importación manual.
+
+## QR
+Cuando el sitio esté publicado, usa como destino del QR una URL corta como:
+
+`https://tudominio.com/hola`
+
+Si quieres que `/hola` funcione como alias de la portada, el `vercel.json` incluido ya lo redirige internamente al `index.html`.
