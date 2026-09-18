@@ -11,90 +11,40 @@ function whatsappUrl(message = defaultMessage) {
   return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-// Contacto general
+// CONTACTO
 const whatsappHero = document.getElementById("whatsappHero");
 const whatsappInline = document.getElementById("whatsappInline");
 const instagramLink = document.getElementById("instagramLink");
 const emailLink = document.getElementById("emailLink");
-const contactForm = document.getElementById("contactForm");
 
 whatsappHero.href = whatsappUrl();
 whatsappInline.href = whatsappUrl();
 instagramLink.href = CONFIG.instagramUrl;
 emailLink.href = `mailto:${CONFIG.email}`;
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const service = document.getElementById("service").value;
-  const message = document.getElementById("message").value.trim();
-
-  const text = [
-    "Hola Impulse Landing.",
-    "",
-    `Soy ${name}.`,
-    `Me interesa: ${service}.`,
-    "",
-    message,
-    "",
-    "Me gustaría conocer cuál sería el siguiente paso."
-  ].join("\n");
-
-  window.open(whatsappUrl(text), "_blank", "noopener,noreferrer");
-});
-
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ================================
-// MINI LANDING BUILDER
-// ================================
-const setupScreen = document.getElementById("setupScreen");
-const setupButton = document.getElementById("setupButton");
+// BUILDER
 const projectNameInput = document.getElementById("projectName");
-const fontOptions = [...document.querySelectorAll(".font-option")];
-
-const demoSite = document.getElementById("demoSite");
+const browserDomain = document.getElementById("browserDomain");
 const demoBrand = document.getElementById("demoBrand");
 const demoFooterBrand = document.getElementById("demoFooterBrand");
 const demoHeroTitle = document.getElementById("demoHeroTitle");
-const browserDomain = document.getElementById("browserDomain");
-
-const builderControls = document.getElementById("builderControls");
-const builderButton = document.getElementById("builderButton");
-const builderButtonText = document.getElementById("builderButtonText");
-const builderInstruction = document.getElementById("builderInstruction");
-const builderStep = document.getElementById("builderStep");
-const builderReset = document.getElementById("builderReset");
-const finishMessage = document.getElementById("finishMessage");
-
-const pieces = {
-  hero: document.querySelector('[data-piece="hero"]'),
-  services: document.querySelector('[data-piece="services"]'),
-  cta: document.querySelector('[data-piece="cta"]'),
-  footer: document.querySelector('[data-piece="footer"]')
-};
-
-const steps = [
-  {
-    piece: "hero",
-    button: "+ Agregar Hero",
-    instruction: "Agrega el mensaje principal que verá primero tu visitante."
-  },
-  {
-    piece: "services",
-    button: "+ Agregar Servicios",
-    instruction: "Ahora muestra, de forma clara, qué ofreces."
-  },
-  {
-    piece: "cta",
-    button: "+ Agregar CTA",
-    instruction: "Dile al visitante cuál es el siguiente paso."
-  }
-];
+const demoSite = document.getElementById("demoSite");
+const emptyPreview = document.getElementById("emptyPreview");
+const styleOptions = [...document.querySelectorAll(".style-option")];
+const buildSteps = [...document.querySelectorAll(".build-step")];
+const demoSections = [...document.querySelectorAll(".demo-section")];
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+const resetBuilder = document.getElementById("resetBuilder");
+const builderComplete = document.getElementById("builderComplete");
+const viewButtons = [...document.querySelectorAll(".view-button")];
+const siteFrame = document.getElementById("siteFrame");
 
 let selectedFont = "inter";
-let currentStep = 0;
+let addedSections = [];
+const order = ["hero", "services", "contact"];
 
 function slugify(value) {
   return value
@@ -105,109 +55,130 @@ function slugify(value) {
     .slice(0, 22) || "tuproyecto";
 }
 
+function updateProjectIdentity() {
+  const raw = projectNameInput.value.trim();
+  const name = raw || "Tu Proyecto";
+
+  browserDomain.textContent = `www.${slugify(raw)}.com`;
+  demoBrand.textContent = name.toUpperCase();
+  demoFooterBrand.textContent = name.toUpperCase();
+
+  demoHeroTitle.textContent = raw
+    ? `${name} merece una presencia que se recuerde.`
+    : "Tu proyecto merece verse bien.";
+}
+
+projectNameInput.addEventListener("input", updateProjectIdentity);
+
 function applyFont(font) {
-  demoSite.classList.remove("font-inter", "font-manrope", "font-space", "font-serif");
+  demoSite.classList.remove("font-inter", "font-space", "font-serif");
   demoSite.classList.add(`font-${font}`);
 }
 
-fontOptions.forEach((option) => {
+styleOptions.forEach((option) => {
   option.addEventListener("click", () => {
     selectedFont = option.dataset.font;
 
-    fontOptions.forEach((item) => item.classList.remove("is-selected"));
+    styleOptions.forEach(item => item.classList.remove("is-selected"));
     option.classList.add("is-selected");
 
     applyFont(selectedFont);
   });
 });
 
-projectNameInput.addEventListener("input", () => {
-  const value = projectNameInput.value.trim();
-  browserDomain.textContent = `${slugify(value)}.com`;
-});
+function refreshBuildUI() {
+  const count = addedSections.length;
 
-setupButton.addEventListener("click", () => {
-  const projectName = projectNameInput.value.trim() || "Tu Proyecto";
+  progressText.textContent = `${count} de 3 secciones`;
+  progressBar.style.width = `${(count / 3) * 100}%`;
 
-  demoBrand.textContent = projectName.toUpperCase();
-  demoFooterBrand.textContent = projectName.toUpperCase();
-  demoHeroTitle.textContent = `${projectName} merece una presencia que se recuerde.`;
-  browserDomain.textContent = `${slugify(projectName)}.com`;
+  buildSteps.forEach((button, index) => {
+    const section = button.dataset.add;
+    const state = button.querySelector(".build-state");
 
-  applyFont(selectedFont);
+    button.classList.remove("is-active", "is-added");
 
-  setupScreen.classList.add("is-hidden");
-  builderControls.hidden = false;
+    if (addedSections.includes(section)) {
+      button.classList.add("is-added");
+      button.disabled = true;
+      state.textContent = "Listo";
+    } else {
+      const nextSection = order[count];
 
-  builderStep.textContent = `1 / ${steps.length}`;
-  builderInstruction.textContent = steps[0].instruction;
-  builderButtonText.textContent = steps[0].button;
-
-  setTimeout(() => {
-    setupScreen.hidden = true;
-  }, 320);
-});
-
-builderButton.addEventListener("click", () => {
-  if (currentStep >= steps.length) return;
-
-  const step = steps[currentStep];
-  pieces[step.piece].classList.add("is-visible");
-
-  currentStep += 1;
-
-  if (currentStep < steps.length) {
-    builderStep.textContent = `${currentStep + 1} / ${steps.length}`;
-    builderInstruction.textContent = steps[currentStep].instruction;
-    builderButtonText.textContent = steps[currentStep].button;
-
-    // desplazar ligeramente el mini sitio para que se vea la sección recién agregada
-    if (currentStep === 2) {
-      demoSite.scrollTo({ top: 80, behavior: "smooth" });
+      if (section === nextSection) {
+        button.classList.add("is-active");
+        button.disabled = false;
+        state.textContent = "Agregar";
+      } else {
+        button.disabled = true;
+        state.textContent = "Después";
+      }
     }
+  });
+
+  if (count > 0) {
+    emptyPreview.classList.add("is-hidden");
   } else {
-    pieces.footer.classList.add("is-visible");
-
-    builderStep.textContent = "LIVE";
-    builderInstruction.textContent = "¡Listo! Acabas de construir una landing page.";
-    builderButton.hidden = true;
-    finishMessage.classList.add("show");
-
-    demoSite.scrollTo({ top: demoSite.scrollHeight, behavior: "smooth" });
+    emptyPreview.classList.remove("is-hidden");
   }
+
+  if (count === 3) {
+    builderComplete.classList.add("show");
+  } else {
+    builderComplete.classList.remove("show");
+  }
+}
+
+buildSteps.forEach((button) => {
+  button.addEventListener("click", () => {
+    const sectionName = button.dataset.add;
+
+    if (addedSections.includes(sectionName)) return;
+    if (sectionName !== order[addedSections.length]) return;
+
+    addedSections.push(sectionName);
+
+    const target = document.querySelector(`[data-demo="${sectionName}"]`);
+    target.classList.add("is-visible");
+
+    refreshBuildUI();
+
+    requestAnimationFrame(() => {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    });
+  });
 });
 
-builderReset.addEventListener("click", () => {
-  currentStep = 0;
-  selectedFont = "inter";
+resetBuilder.addEventListener("click", () => {
+  addedSections = [];
 
-  Object.values(pieces).forEach((piece) => {
-    if (!piece.classList.contains("base-piece")) {
-      piece.classList.remove("is-visible");
-    }
-  });
+  demoSections.forEach(section => section.classList.remove("is-visible"));
+  demoSite.scrollTo({ top: 0, behavior: "smooth" });
 
-  demoSite.scrollTo({ top: 0, behavior: "auto" });
-  demoSite.classList.remove("font-manrope", "font-space", "font-serif");
-  demoSite.classList.add("font-inter");
-
-  demoBrand.textContent = "TU PROYECTO";
-  demoFooterBrand.textContent = "TU PROYECTO";
-  demoHeroTitle.textContent = "Haz que tu proyecto se vea como merece.";
-  browserDomain.textContent = "tuproyecto.com";
-  projectNameInput.value = "";
-
-  fontOptions.forEach((item) => item.classList.remove("is-selected"));
-  fontOptions[0].classList.add("is-selected");
-
-  finishMessage.classList.remove("show");
-  builderButton.hidden = false;
-  builderControls.hidden = true;
-
-  setupScreen.hidden = false;
-  requestAnimationFrame(() => {
-    setupScreen.classList.remove("is-hidden");
-  });
-
-  builderStep.textContent = "Configura";
+  refreshBuildUI();
 });
+
+viewButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    viewButtons.forEach(item => item.classList.remove("is-selected"));
+    button.classList.add("is-selected");
+
+    const view = button.dataset.view;
+    siteFrame.classList.toggle("mobile", view === "mobile");
+    siteFrame.classList.toggle("desktop", view === "desktop");
+  });
+});
+
+updateProjectIdentity();
+applyFont(selectedFont);
+refreshBuildUI();
+
+// Cursor y formulario
+const cc=document.querySelector(".custom-cursor");
+if(cc&&matchMedia("(hover:hover) and (pointer:fine)").matches){document.body.classList.add("custom-cursor-enabled");addEventListener("pointermove",e=>{cc.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;cc.classList.add("show")});document.querySelectorAll("a,button,input,select,textarea").forEach(el=>{el.onpointerenter=()=>cc.classList.add("hover");el.onpointerleave=()=>cc.classList.remove("hover")})}
+const launch=document.getElementById("contactLaunch"),form=document.getElementById("contactForm");
+launch?.addEventListener("click",e=>{e.preventDefault();form.classList.add("open");document.getElementById("leadName").focus()});
+form?.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(form);const m=`Hola Impulse Landing, quiero conversar sobre mi proyecto.\nNombre: ${d.get("name")}\nContacto: ${d.get("contact")}\nMe interesa: ${d.get("interest")}\nIdea: ${d.get("idea")}`;open(whatsappUrl(m),"_blank","noopener,noreferrer")});

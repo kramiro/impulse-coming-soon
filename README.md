@@ -1,30 +1,50 @@
-# Impulse Landing — QR Landing V2.2
+# Impulse Landing — V2.3
+
+Esta versión reconstruye la experiencia principal y simplifica el mini constructor.
 
 ## Cambios principales
-- El navegador demo muestra mejor la experiencia de un sitio publicado:
-  - protocolo `https://`
-  - dominio visible
-  - indicador `LIVE`
-  - barra de navegador más realista
-- Antes de construir, el usuario escribe el nombre de su proyecto.
-- El nombre se refleja automáticamente en:
-  - dominio demo
-  - navegación
-  - hero
-  - footer
-- Se pueden elegir 4 estilos tipográficos:
-  - Modern — Inter
-  - Clean — Manrope
-  - Tech — Space Grotesk
-  - Editorial — DM Serif Display
-- La mini landing ahora parece mucho más un sitio real.
-- El usuario agrega:
-  1. Hero
-  2. Servicios
-  3. CTA
-  4. Footer automático al finalizar
-- El CTA principal volvió a la izquierda.
-- El botón principal de WhatsApp ahora usa un violeta transparente / glassy.
+
+### 1. Hero a pantalla completa
+La primera sección ahora ocupa toda la pantalla:
+- headline grande
+- copy breve
+- CTA a WhatsApp
+- CTA a trabajos
+- enlace discreto hacia el constructor
+
+### 2. Constructor interactivo movido debajo del hero
+La experiencia de "construir una landing" ya no compite con el mensaje principal.
+
+### 3. Constructor más simple y amigable
+El usuario:
+1. escribe el nombre del proyecto
+2. elige uno de 3 estilos tipográficos
+3. agrega 3 partes esenciales:
+   - Presentación / Hero
+   - Servicios
+   - Contacto / CTA
+
+No hay pasos innecesarios como navegación o footer manuales.
+
+### 4. Vista live más real
+Incluye:
+- `https://`
+- dominio dinámico
+- vista desktop
+- vista mobile
+- contenido adaptado al nombre del proyecto
+
+### 5. Explicación educativa
+La interacción ayuda a entender qué es una landing page:
+- presenta una idea
+- explica lo que ofreces
+- guía hacia una acción
+
+### 6. Página general simplificada
+- se eliminó el formulario largo
+- contacto final más directo
+- CTA principal sigue siendo WhatsApp
+- trabajos y servicios permanecen
 
 ## Antes de publicar
 Edita `script.js`:
@@ -46,6 +66,6 @@ const CONFIG = {
 6. Sin Build Command.
 7. Deploy.
 
-`vercel.json` mantiene:
+El `vercel.json` mantiene:
 - `/hola`
 - `/contacto`
