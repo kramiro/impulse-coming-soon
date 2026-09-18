@@ -1,3 +1,4 @@
+Preview Original
 # Impulse Landing — V2.3
 
 Esta versión reconstruye la experiencia principal y simplifica el mini constructor.
