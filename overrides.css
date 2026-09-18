@@ -1,0 +1,9 @@
+/* Ajustes finales de composición y navegación */
+.ambient-three{right:-90px;bottom:14vh;width:240px;height:240px;background:#7d56d9;opacity:.16}
+.ambient-four{left:-130px;top:51vh;width:220px;height:220px;background:#9a54cc;opacity:.13}
+.hero h1{font-weight:720;letter-spacing:-.07em}
+#servicios{scroll-margin-top:16px}
+.brand-word{font-family:Arial,sans-serif;font-size:clamp(1rem,2.4vw,1.7rem);letter-spacing:-.08em;white-space:nowrap}
+.nike{font-style:italic;font-weight:900}.airbnb{font-weight:650;letter-spacing:-.11em}.spotify{font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.16em}
+.pill-d{left:42%;top:42%;animation:brandFloat 5s ease-in-out infinite -1s}.instagram-icon{font-size:1.65rem}.tiktok-icon{font-size:1.5rem}.google-icon{font-family:Arial,sans-serif;color:#e9e3ff}.mail-icon{font-size:1.02rem}
+@media(max-width:620px){.ambient-three{right:-135px;bottom:6vh}.ambient-four{left:-150px;top:52vh}}
