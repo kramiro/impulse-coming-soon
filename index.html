@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body><div class="custom-cursor" aria-hidden="true"><span></span></div>
+<body>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
 
@@ -43,8 +43,13 @@
           Diseñamos experiencias digitales claras, modernas y pensadas para convertir atención en contacto.
         </p>
 
-        <div class="hero-actions" aria-label="Acciones principales"><a class="btn btn-primary-glass" id="whatsappHero" href="#" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#trabajos">Ver nuestros trabajos <span aria-hidden="true">↓</span></a><a class="btn btn-builder" href="#constructor">Crea tu landing <span aria-hidden="true">✦</span></a></div>
-      </div><div class="hero-interface" aria-hidden="true"><div class="float-window main"><i></i><i></i><i></i><b></b><em></em><small></small></div><div class="float-window card"><strong>01</strong><span>IDEA<br>EN LÍNEA</span><u></u></div></div>
+        <div class="hero-actions" aria-label="Acciones principales">
+          <a class="btn btn-primary-glass" id="whatsappHero" href="#" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#trabajos">Ver nuestros trabajos <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-builder" href="#constructor">Crea tu landing <span aria-hidden="true">✦</span></a>
+        </div>
+      </div>
+      <div class="hero-mouse" aria-hidden="true"><span class="mouse-core"></span><span class="mouse-trail"></span><span class="mouse-label">MOVE / CREATE</span></div>
     </section>
 
     <!-- CONSTRUCTOR INTERACTIVO -->
@@ -160,7 +165,7 @@
             <div class="address-bar">
               <span class="secure-dot"></span>
               <span class="protocol">https://</span>
-              <strong id="browserDomain">www.tuproyecto.com</strong>
+              <strong id="browserDomain">tuproyecto.com</strong>
             </div>
 
             <div class="view-switch" aria-label="Vista del sitio">
@@ -332,24 +337,10 @@
 
     <!-- CONTACTO -->
     <section class="section contact-section" id="contacto">
-      <div class="contact-card">
-        <p class="section-kicker">Conversemos</p>
-        <h2>¿Qué quieres impulsar?</h2>
-        <p>
-          Cuéntanos tu idea. No necesitas tener todo resuelto para empezar.
-        </p>
-
-        <div class="contact-actions">
-          <a class="contact-launch" id="contactLaunch" href="#contact-form"><span>Cuéntanos tu idea</span><i aria-hidden="true">↗</i></a><form class="contact-form" id="contactForm"><div class="form-grid"><label>Tu nombre<input id="leadName" name="name" required placeholder="¿Cómo te llamas?"></label><label>Cómo contactarte<input name="contact" required placeholder="WhatsApp, correo o teléfono"></label></div><label>¿Qué te interesa?<select name="interest" required><option value="">Elige una opción</option><option>Landing page</option><option>Branding</option><option>Presencia digital completa</option><option>Quiero orientación</option></select></label><label>Cuéntanos tu idea<textarea name="idea" required maxlength="600" placeholder="Ej. Tengo un negocio y quiero que más personas me encuentren…"></textarea></label><button class="form-send" type="submit">Enviar por WhatsApp ↗</button></form>
-
-          <a class="text-link" id="instagramLink" href="#" target="_blank" rel="noopener">
-            Instagram ↗
-          </a>
-
-          <a class="text-link" id="emailLink" href="#">
-            Correo ↗
-          </a>
-        </div>
+      <div class="contact-aurora" aria-hidden="true"></div>
+      <div class="contact-card contact-card-new">
+        <div class="contact-copy"><p class="section-kicker">Una idea puede empezar hoy</p><h2>Haz que tu próximo clic <span>sea el comienzo.</span></h2><p>No necesitas llegar con todo resuelto. Trae la intención; juntos le damos forma, ritmo y una dirección que conecte.</p><a class="contact-launch" id="whatsappInline" href="#" target="_blank" rel="noopener noreferrer"><span>Iniciar conversación</span><i aria-hidden="true">↗</i></a></div>
+        <div class="contact-signal" aria-hidden="true"><span class="signal-ring ring-one"></span><span class="signal-ring ring-two"></span><span class="signal-ring ring-three"></span><div class="signal-center"><span>IMPULSE</span><strong>01</strong><small>YOUR IDEA<br>IN MOTION</small></div></div>
       </div>
     </section>
   </main>

@@ -59,7 +59,7 @@ function updateProjectIdentity() {
   const raw = projectNameInput.value.trim();
   const name = raw || "Tu Proyecto";
 
-  browserDomain.textContent = `www.${slugify(raw)}.com`;
+  browserDomain.textContent = `${slugify(raw)}.com`;
   demoBrand.textContent = name.toUpperCase();
   demoFooterBrand.textContent = name.toUpperCase();
 
@@ -175,10 +175,3 @@ viewButtons.forEach((button) => {
 updateProjectIdentity();
 applyFont(selectedFont);
 refreshBuildUI();
-
-// Cursor y formulario
-const cc=document.querySelector(".custom-cursor");
-if(cc&&matchMedia("(hover:hover) and (pointer:fine)").matches){document.body.classList.add("custom-cursor-enabled");addEventListener("pointermove",e=>{cc.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;cc.classList.add("show")});document.querySelectorAll("a,button,input,select,textarea").forEach(el=>{el.onpointerenter=()=>cc.classList.add("hover");el.onpointerleave=()=>cc.classList.remove("hover")})}
-const launch=document.getElementById("contactLaunch"),form=document.getElementById("contactForm");
-launch?.addEventListener("click",e=>{e.preventDefault();form.classList.add("open");document.getElementById("leadName").focus()});
-form?.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(form);const m=`Hola Impulse Landing, quiero conversar sobre mi proyecto.\nNombre: ${d.get("name")}\nContacto: ${d.get("contact")}\nMe interesa: ${d.get("interest")}\nIdea: ${d.get("idea")}`;open(whatsappUrl(m),"_blank","noopener,noreferrer")});
