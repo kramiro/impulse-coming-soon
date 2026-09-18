@@ -8,7 +8,8 @@ const defaultMessage =
   "Hola Impulse Landing. Vi su tarjeta y me gustaría hablar sobre mi proyecto.";
 
 function whatsappUrl(message = defaultMessage) {
-  return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const number = String(CONFIG.whatsappNumber).replace(/\D/g, "");
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 // CONTACTO
@@ -18,8 +19,11 @@ const instagramLink = document.getElementById("instagramLink");
 const emailLink = document.getElementById("emailLink");
 
 whatsappHero.href = whatsappUrl();
+whatsappHero.rel = "noopener noreferrer";
 whatsappInline.href = whatsappUrl();
+whatsappInline.rel = "noopener noreferrer";
 instagramLink.href = CONFIG.instagramUrl;
+instagramLink.rel = "noopener noreferrer";
 emailLink.href = `mailto:${CONFIG.email}`;
 
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -79,8 +83,9 @@ styleOptions.forEach((option) => {
   option.addEventListener("click", () => {
     selectedFont = option.dataset.font;
 
-    styleOptions.forEach(item => item.classList.remove("is-selected"));
+    styleOptions.forEach(item => { item.classList.remove("is-selected"); item.setAttribute("aria-pressed", "false"); });
     option.classList.add("is-selected");
+    option.setAttribute("aria-pressed", "true");
 
     applyFont(selectedFont);
   });
@@ -163,8 +168,9 @@ resetBuilder.addEventListener("click", () => {
 
 viewButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    viewButtons.forEach(item => item.classList.remove("is-selected"));
+    viewButtons.forEach(item => { item.classList.remove("is-selected"); item.setAttribute("aria-pressed", "false"); });
     button.classList.add("is-selected");
+    button.setAttribute("aria-pressed", "true");
 
     const view = button.dataset.view;
     siteFrame.classList.toggle("mobile", view === "mobile");
@@ -175,3 +181,5 @@ viewButtons.forEach((button) => {
 updateProjectIdentity();
 applyFont(selectedFont);
 refreshBuildUI();
+
+

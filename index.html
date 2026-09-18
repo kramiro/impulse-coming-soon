@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#09090b" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Impulse Landing — Impulsa tu presencia digital" />
+  <meta property="og:description" content="Branding, landing pages y presencia digital clara para convertir atención en contacto." />
   <meta name="description" content="Impulse Landing — Branding, Landing Pages y Presencia Digital." />
   <title>Impulse Landing — Impulsa tu presencia digital</title>
 
@@ -16,6 +20,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
 
@@ -28,7 +33,7 @@
     <a class="header-link" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
+  <main id="contenido">
     <!-- HERO FULL SCREEN -->
     <section class="hero" id="inicio">
       <div class="hero-inner">
@@ -43,13 +48,23 @@
           Diseñamos experiencias digitales claras, modernas y pensadas para convertir atención en contacto.
         </p>
 
-        <div class="hero-actions" aria-label="Acciones principales">
-          <a class="btn btn-primary-glass" id="whatsappHero" href="#" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-secondary" href="#trabajos">Ver nuestros trabajos <span aria-hidden="true">↓</span></a>
-          <a class="btn btn-builder" href="#constructor">Crea tu landing <span aria-hidden="true">✦</span></a>
+        <div class="hero-actions">
+          <a class="btn btn-primary-glass" id="whatsappHero" href="#" target="_blank" rel="noopener">
+            Hablemos por WhatsApp
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="btn btn-secondary" href="#trabajos">
+            Ver nuestros trabajos
+            <span aria-hidden="true">↓</span>
+          </a>
         </div>
+
+        <a class="hero-scroll" href="#constructor" aria-label="Bajar al constructor interactivo">
+          <span>Descubre cómo funciona una landing</span>
+          <span aria-hidden="true">↓</span>
+        </a>
       </div>
-      <div class="hero-mouse" aria-hidden="true"><span class="mouse-core"></span><span class="mouse-trail"></span><span class="mouse-label">MOVE / CREATE</span></div>
     </section>
 
     <!-- CONSTRUCTOR INTERACTIVO -->
@@ -85,7 +100,7 @@
             <span class="field-label">Elige un estilo</span>
 
             <div class="style-grid" id="styleGrid">
-              <button type="button" class="style-option is-selected" data-font="inter">
+              <button type="button" class="style-option is-selected" data-font="inter" aria-pressed="true">
                 <span class="style-aa font-inter">Aa</span>
                 <span>
                   <strong>Modern</strong>
@@ -93,7 +108,7 @@
                 </span>
               </button>
 
-              <button type="button" class="style-option" data-font="space">
+              <button type="button" class="style-option" data-font="space" aria-pressed="false">
                 <span class="style-aa font-space">Aa</span>
                 <span>
                   <strong>Tech</strong>
@@ -101,7 +116,7 @@
                 </span>
               </button>
 
-              <button type="button" class="style-option" data-font="serif">
+              <button type="button" class="style-option" data-font="serif" aria-pressed="false">
                 <span class="style-aa font-serif">Aa</span>
                 <span>
                   <strong>Editorial</strong>
@@ -146,7 +161,7 @@
 
           <div class="builder-progress">
             <div class="progress-copy">
-              <span id="progressText">0 de 3 secciones</span>
+              <span id="progressText" aria-live="polite">0 de 3 secciones</span>
               <button type="button" id="resetBuilder">Reiniciar</button>
             </div>
             <div class="progress-track">
@@ -169,10 +184,10 @@
             </div>
 
             <div class="view-switch" aria-label="Vista del sitio">
-              <button class="view-button is-selected" type="button" data-view="desktop" aria-label="Vista escritorio">
+              <button class="view-button is-selected" type="button" data-view="desktop" aria-label="Vista escritorio" aria-pressed="true">
                 Desktop
               </button>
-              <button class="view-button" type="button" data-view="mobile" aria-label="Vista móvil">
+              <button class="view-button" type="button" data-view="mobile" aria-label="Vista móvil" aria-pressed="false">
                 Mobile
               </button>
             </div>
@@ -337,10 +352,27 @@
 
     <!-- CONTACTO -->
     <section class="section contact-section" id="contacto">
-      <div class="contact-aurora" aria-hidden="true"></div>
-      <div class="contact-card contact-card-new">
-        <div class="contact-copy"><p class="section-kicker">Una idea puede empezar hoy</p><h2>Haz que tu próximo clic <span>sea el comienzo.</span></h2><p>No necesitas llegar con todo resuelto. Trae la intención; juntos le damos forma, ritmo y una dirección que conecte.</p><a class="contact-launch" id="whatsappInline" href="#" target="_blank" rel="noopener noreferrer"><span>Iniciar conversación</span><i aria-hidden="true">↗</i></a></div>
-        <div class="contact-signal" aria-hidden="true"><span class="signal-ring ring-one"></span><span class="signal-ring ring-two"></span><span class="signal-ring ring-three"></span><div class="signal-center"><span>IMPULSE</span><strong>01</strong><small>YOUR IDEA<br>IN MOTION</small></div></div>
+      <div class="contact-card">
+        <p class="section-kicker">Conversemos</p>
+        <h2>¿Qué quieres impulsar?</h2>
+        <p>
+          Cuéntanos tu idea. No necesitas tener todo resuelto para empezar.
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary-glass" id="whatsappInline" href="#" target="_blank" rel="noopener">
+            Hablemos por WhatsApp
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="text-link" id="instagramLink" href="#" target="_blank" rel="noopener">
+            Instagram ↗
+          </a>
+
+          <a class="text-link" id="emailLink" href="#">
+            Correo ↗
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -358,5 +390,4 @@
   <script src="/script.js"></script>
 </body>
 </html>
-
 
