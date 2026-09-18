@@ -1,0 +1,1 @@
+{ "$schema": "./node_modules/wrangler/config-schema.json", "name": "impulse-web", "compatibility_date": "2026-09-18", "assets": { "directory": "./public", "html_handling": "auto-trailing-slash" } }
