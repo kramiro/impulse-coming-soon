@@ -1,1 +1,6 @@
-{ "$schema": "./node_modules/wrangler/config-schema.json", "name": "impulse-web", "compatibility_date": "2026-09-18", "assets": { "directory": ".", "html_handling": "auto-trailing-slash" } }
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "impulse-coming-soon",
+  "compatibility_date": "2026-09-19",
+  "assets": { "directory": ".", "html_handling": "auto-trailing-slash" }
+}
