@@ -24,10 +24,20 @@ const builderEmail = document.getElementById("builderEmail");
 function updatePreview() {
   const name = projectName.value.trim() || "TU PROYECTO";
   previewBrand.textContent = name.toUpperCase();
-  previewTitle.innerHTML = `${name}<br>merece ser descubierto.`;
+  previewTitle.textContent = `${name}\nmerece ser descubierto.`;
   previewText.textContent = projectType.value;
 }
 projectName.addEventListener("input", updatePreview);
 projectType.addEventListener("change", updatePreview);
 builderEmail.addEventListener("click", () => { window.location.href = emailUrl("una mini landing page", projectName.value.trim()); });
+
+document.getElementById("leadForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = document.getElementById("leadName").value.trim();
+  const service = document.getElementById("leadService").value;
+  const message = document.getElementById("leadMessage").value.trim();
+  const subject = `Consulta sobre ${service}${name ? ` — ${name}` : ""}`;
+  const body = `Hola Impulse Landing,\n\nSoy ${name}.\nMe interesa: ${service}.\n\n${message}\n\nMe gustaría conocer el siguiente paso.`;
+  window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
 document.getElementById("year").textContent = new Date().getFullYear();
