@@ -1,41 +1,24 @@
-# Impulse Landing — mini landing para QR
+# Impulse Landing
 
-Sitio estático listo para desplegar en Vercel.
+Sitio estático preparado para GitHub y Cloudflare Workers.
 
-## Archivos
-- `index.html`
-- `styles.css`
-- `script.js`
-- `favicon.svg`
-- `vercel.json`
+## Archivos principales
+
+- `index.html` — estructura del sitio
+- `styles.css` y `refinement.css` — diseño adaptable
+- `script.js` — WhatsApp e idioma ES/EN
+- `favicon.png` — favicon oficial
+- `wrangler.jsonc` — configuración de Cloudflare
 
 ## Antes de publicar
-Abre `script.js` y cambia:
 
-```js
-const CONFIG = {
-  whatsappNumber: "50499999999",
-  instagramUrl: "https://instagram.com/impulselanding",
-  email: "hola@impulselanding.com"
-};
-```
+Abre `script.js` y cambia `whatsappNumber` por el número real, con código de país y sin `+`, espacios ni guiones.
 
-En `whatsappNumber`, usa el código de país + número sin `+`, espacios ni guiones.
+## Publicar con Cloudflare
 
-## Publicar en Vercel
-1. Descomprime esta carpeta.
-2. Súbela a un repositorio de GitHub.
-3. En Vercel: Add New → Project → Importa el repositorio.
-4. Framework Preset: `Other`.
-5. Root Directory: `./`
-6. No necesitas Build Command.
-7. Deploy.
+1. Sube todos los archivos a la raíz de tu repositorio de GitHub.
+2. En Cloudflare Workers & Pages, conecta el repositorio.
+3. Deja el comando de despliegue como `npx wrangler deploy`.
+4. Cloudflare detectará `wrangler.jsonc` y publicará los archivos estáticos.
 
-También puedes arrastrar la carpeta a Vercel si usas su flujo de importación manual.
-
-## QR
-Cuando el sitio esté publicado, usa como destino del QR una URL corta como:
-
-`https://tudominio.com/hola`
-
-Si quieres que `/hola` funcione como alias de la portada, el `vercel.json` incluido ya lo redirige internamente al `index.html`.
+No incluye archivos ni configuración de Vercel.
